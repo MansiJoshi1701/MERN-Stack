@@ -34,7 +34,7 @@ const getSingleWorkout = async (req , res) => {
 }
 
 
-//CREATE a new workout
+//POST a new workout
 const createWorkout = async (req , res) => {
     const {title , reps , load} = req.body
 
