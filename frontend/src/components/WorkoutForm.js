@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
 const WorkoutForm = () => {
+    
     const { dispatch } = useWorkoutsContext()
 
     const [title , setTitle] = useState('')
