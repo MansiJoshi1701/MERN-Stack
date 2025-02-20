@@ -34,9 +34,31 @@ const getSingleWorkout = async (req , res) => {
 }
 
 
-//POST a new workout
+//CREATE/POST a new workout
 const createWorkout = async (req , res) => {
     const {title , reps , load} = req.body
+
+    //Error handling - missing input field
+    let emptyFields = []
+
+    if(!title){ //missing title
+        emptyFields.push('title')
+    }
+
+    if(!load){ //missing load
+        emptyFields.push('load')
+    }
+
+    if(!reps){ //missing reps
+        emptyFields.push('reps')
+    }
+
+    if(emptyFields.length > 0){ //means either of the input fields is missing
+
+        return res.status(400).json({error: 'Please fill in all the fields' , emptyFields})
+    }
+
+
 
     //add the doc(data) to the DB
     try{
